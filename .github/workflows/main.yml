@@ -17,6 +17,13 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Update parameters.json
+      env:
+        SECRET_VALUE: ${{ secrets.VM_PASSWORD }}
+      run: |
+        jq '.parameters.connectionString.value = "${SECRET_VALUE}"' -e "/parameters.json" > updated-parameters.json
+        mv updated-parameters.json /parameters.json
+
 
     - name: Deploy ARM Template
       run: az deployment group create --resource-group dev-cert-rg --template-file ./template.json --parameters ./parameters.json --mode Complete
