@@ -1,11 +1,11 @@
-name: Azure Deployment
+#name: Azure Deployment
 
-on:
+#on:
   push:
     branches:
       - main
 
-jobs:
+#jobs:
   deploy:
     runs-on: ubuntu-latest
 
