@@ -86,7 +86,7 @@
             "value": "root5"
         },
         "adminPassword": {
-            "value": null
+            "value": "Password1234"
         },
         "patchMode": {
             "value": "AutomaticByOS"
